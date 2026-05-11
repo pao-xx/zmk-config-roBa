@@ -85,10 +85,10 @@
 &mkp_input_listener { input-processors = <&zip_temp_layer MOUSE 10000>; };
 
 &trackball {
-    cpi = <800>;
+    cpi = <400>;
     swap-xy;
-    // invert-x;
-    // invert-y;
+    invert-x;
+    invert-y;
 };
 
 &zip_mouse_gesture {
