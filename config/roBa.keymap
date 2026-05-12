@@ -32,6 +32,17 @@
 #define MEDIA 8
 #define EXTRA_FINCTIONS 9
 #define CONFIGURATION 10
+#define SPEED_CONFIG 11
+#define SPEED_01 12
+#define SPEED_02 13
+#define SPEED_03 14
+#define SPEED_04 15
+#define SPEED_05 16
+#define SPEED_06 17
+#define SPEED_07 18
+#define SPEED_08 19
+#define SPEED_09 20
+#define SPEED_10 21
 
 &mt {
     tapping-term-ms = <200>;
@@ -190,6 +201,66 @@
 
         process-next;
     };
+
+    speed_01 {
+        layers = <SPEED_01>;
+        input-processors = <&speed_scaler 1 2>;
+        process-next;
+    };
+
+    speed_02 {
+        layers = <SPEED_02>;
+        input-processors = <&speed_scaler 2 3>;
+        process-next;
+    };
+
+    speed_03 {
+        layers = <SPEED_03>;
+        input-processors = <&speed_scaler 5 6>;
+        process-next;
+    };
+
+    speed_04 {
+        layers = <SPEED_04>;
+        input-processors = <&speed_scaler 1 1>;
+        process-next;
+    };
+
+    speed_05 {
+        layers = <SPEED_05>;
+        input-processors = <&speed_scaler 7 6>;
+        process-next;
+    };
+
+    speed_06 {
+        layers = <SPEED_06>;
+        input-processors = <&speed_scaler 4 3>;
+        process-next;
+    };
+
+    speed_07 {
+        layers = <SPEED_07>;
+        input-processors = <&speed_scaler 3 2>;
+        process-next;
+    };
+
+    speed_08 {
+        layers = <SPEED_08>;
+        input-processors = <&speed_scaler 5 3>;
+        process-next;
+    };
+
+    speed_09 {
+        layers = <SPEED_09>;
+        input-processors = <&speed_scaler 11 6>;
+        process-next;
+    };
+
+    speed_10 {
+        layers = <SPEED_10>;
+        input-processors = <&speed_scaler 2 1>;
+        process-next;
+    };
 };
 
 / {
@@ -199,6 +270,14 @@
             #input-processor-cells = <2>;
             type = <INPUT_EV_REL>;
             codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+
+        speed_scaler: speed_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y>;
             track-remainders;
         };
     };
@@ -869,6 +948,105 @@
 &none                 &none       &none  &none  &tog_ls_on   &trans      &td_bt_clear  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4
 &none                 &none       &none  &none  &tog_ls_off  &none       &none         &none         &none         &none         &none           &none
 &none                 &none       &none  &none  &none        &none       &none         &none                                                     &td_bt_clear_all
+            >;
+        };
+
+        SPEED_CONFIG {
+            bindings = <
+&to SPEED_01  &to SPEED_02  &to SPEED_03  &to SPEED_04  &to SPEED_05  &to SPEED_06  &to SPEED_07  &to SPEED_08  &to SPEED_09  &to SPEED_10
+&trans        &trans        &trans        &trans        &trans       &trans    &trans  &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans       &trans    &trans  &trans        &trans        &trans        &trans        &trans
+&trans        &trans        &trans        &trans        &trans       &trans    &trans  &trans                                             &trans
+            >;
+        };
+
+        SPEED_01 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_02 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_03 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_04 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_05 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_06 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_07 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_08 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_09 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
+            >;
+        };
+
+        SPEED_10 {
+            bindings = <
+&trans &trans &trans &trans &trans                  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans   &trans  &trans                       &trans
             >;
         };
     };
